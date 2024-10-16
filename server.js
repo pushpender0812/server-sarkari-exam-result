@@ -8,7 +8,10 @@ const adminRoutes = require('./routes/admin-routes')
 const cookieParser = require('cookie-parser')
 const apiRoutes = require("./routes/Api/api-routes")
 
-const PORT = 5000
+
+
+
+const PORT = process.env.PORT 
 
 app.use(cookieParser())
 
