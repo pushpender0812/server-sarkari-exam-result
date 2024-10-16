@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Admissions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <style>
+        body {
+            background-color: #f4f8fc; /* Light background color to suit the academic/admission theme */
+        }
+
+        .breadcrumb-item a {
+            color: #1d68a7; /* Blue color for breadcrumbs */
+        }
+
+        .breadcrumb-item.active {
+            color: #6c757d;
+        }
+
+        .card {
+            background-color: #ffffff; /* Bright white card to give a clean and formal look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: #2c5c91; /* Dark blue for title to give academic vibes */
+        }
+
+        table.dataTable {
+            border: 1px solid #dee2e6; /* Light border around the table */
+        }
+
+        table.dataTable thead th {
+            background-color: #2c5c91; /* Dark blue for header */
+            color: white;
+        }
+
+        table.dataTable tbody tr {
+            background-color: #fdfdfd; /* Soft background for rows */
+        }
+
+        .btn-info {
+            background-color: #4CAF50 !important; /* Green button for admissions */
+            border: none;
+        }
+
+        .btn-info:hover {
+            background-color: #45a049 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>View Admissions</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item">Admissions</li>
+                    <li class="breadcrumb-item active">View Admissions</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Admission List</h5>
+
+                            <div class="container mt-5">
+                                <table id="admissionsTable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>S.NO.</th>
+                                            <th>Admission Title</th>
+                                            <th>Admission ID</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% let sNo = 1; %>
+                                        <% result.forEach(admission => { %>
+                                        <tr>
+                                            <td><%= sNo++ %></td>
+                                            <td><%= admission.title %></td>
+                                            <td><%= admission._id %></td>
+                                            <td>
+                                                <a href="/admin/user/job/view-singleadmission?id=<%= admission._id %>" class="btn btn-info btn-sm">View</a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            $('#admissionsTable').DataTable();
+        });
+    </script>
+
+</body>
+
+</html>

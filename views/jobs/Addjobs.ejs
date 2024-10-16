@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job/Admission</title>
+</head>
+<body>
+    <main id="main" class="main">
+        <div class="pagetitle">
+          <h1>Add Job/Admission</h1>
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">Jobs</li>
+              <li class="breadcrumb-item active">Add Job</li>
+            </ol>
+          </nav>
+        </div>
+        <!-- End Page Title -->
+      
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Add Job</h5>
+      
+                  <form class="row g-3" action="/admin/user/job/submit-addjobs" method="POST">
+                    <!-- Type Selection Radio Button -->
+                    <div class="col-12">
+                      <label class="form-label">Type</label><br>
+                      <input type="radio" id="job" name="type" value="job" required>
+                      <label for="job">Job</label>
+                      
+                      <input type="radio" id="admission" name="type" value="admission" required>
+                      <label for="admission">Admission</label>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="title" class="form-label">Job Title</label>
+                      <input type="text" class="form-control" id="title" name="title" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="post_name" class="form-label">Post Name</label>
+                      <input type="text" class="form-control" id="post_name" name="post_name" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="job_description" class="form-label">Job Description</label>
+                      <textarea class="form-control" id="job_description" name="job_description" required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <label for="table_title1" class="form-label">Table Title 1</label>
+                      <input type="text" class="form-control" id="table_title1" name="table_title1" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="table_title2" class="form-label">Table Title 2</label>
+                      <input type="text" class="form-control" id="table_title2" name="table_title2" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="table_title3" class="form-label">Table Title 3</label>
+                      <input type="text" class="form-control" id="table_title3" name="table_title3" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="application_begin" class="form-label">Application Begin Date</label>
+                      <input type="date" class="form-control" id="application_begin" name="application_begin" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="application_end" class="form-label">Application End Date</label>
+                      <input type="date" class="form-control" id="application_end" name="application_end" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="pay_last_date" class="form-label">Pay Last Date</label>
+                      <input type="date" class="form-control" id="pay_last_date" name="pay_last_date" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="correction_date" class="form-label">Correction Date</label>
+                      <input type="text" class="form-control" id="correction_date" name="correction_date" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="exam_date" class="form-label">Exam Date</label>
+                      <input type="text" class="form-control" id="exam_date" name="exam_date" value="As Per Notification" />
+                    </div>
+                    <div class="col-12">
+                      <label for="exam_fees1" class="form-label">Exam Fees 1</label>
+                      <input type="text" class="form-control" id="exam_fees1" name="exam_fees1" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="exam_fees2" class="form-label">Exam Fees 2</label>
+                      <input type="text" class="form-control" id="exam_fees2" name="exam_fees2" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="exam_fees3" class="form-label">Exam Fees 3</label>
+                      <input type="text" class="form-control" id="exam_fees3" name="exam_fees3" />
+                    </div>
+                    <div class="col-12">
+                      <label for="fees_description" class="form-label">Fees Description</label>
+                      <textarea class="form-control" id="fees_description" name="fees_description" required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <label for="age_limit_title" class="form-label">Age Limit Title</label>
+                      <input type="text" class="form-control" id="age_limit_title" name="age_limit_title" required />
+                    </div>
+                    <div class="col-6">
+                      <label for="minimum_age" class="form-label">Minimum Age</label>
+                      <input type="text" class="form-control" id="minimum_age" name="minimum_age" required />
+                    </div>
+                    <div class="col-6">
+                      <label for="maximum_age" class="form-label">Maximum Age</label>
+                      <input type="text" class="form-control" id="maximum_age" name="maximum_age" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="age_description" class="form-label">Age Description</label>
+                      <textarea class="form-control" id="age_description" name="age_description" required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <label for="total_vacancy" class="form-label">Total Vacancy</label>
+                      <input type="text" class="form-control" id="total_vacancy" name="total_vacancy" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="how_to_fill" class="form-label">How to Fill</label>
+                      <textarea class="form-control" id="how_to_fill" name="how_to_fill" required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <label for="apply_online_link" class="form-label">Apply Online Link</label>
+                      <input type="url" class="form-control" id="apply_online_link" name="apply_online_link" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="download_notification_link" class="form-label">Download Notification Link</label>
+                      <input type="url" class="form-control" id="download_notification_link" name="download_notification_link" required />
+                    </div>
+                    <div class="col-12">
+                      <label for="official_website_link" class="form-label">Official Website Link</label>
+                      <input type="url" class="form-control" id="official_website_link" name="official_website_link" required />
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- End #main -->
+      
+</body>
+</html>

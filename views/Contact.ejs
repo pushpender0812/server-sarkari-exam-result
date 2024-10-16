@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Contact Messages</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+</head>
+
+<body>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>View Contact Messages</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item">Contacts</li>
+                    <li class="breadcrumb-item active">View Messages</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Contact Message List</h5>
+
+                            <div class="container mt-5">
+                                <table id="contactsTable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>S.NO.</th>
+                                            <th>User Email</th>
+                                            <th>Message</th>
+                                            <th>Received At</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% let sNo = 1; %>
+                                        <% result.forEach(contact => { %>
+                                        <tr>
+                                            <td><%= sNo++ %></td>
+                                            <td><%= contact.email %></td>
+                                            <td><%= contact.message %></td>
+                                            <td><%= new Date(contact.createdAt).toLocaleString() %></td>
+                                            <td>
+                                                <span class="badge <%= contact.isSolved ? 'badge-success' : 'badge-danger' %>">
+                                                    <%= contact.isSolved ? 'Solved' : 'Unsolved' %>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <form class="row g-3" action="/admin/user/contact/change-status/<%= contact._id %>" method="POST">
+                                                <button  class="btn btn-sm <%= contact.isSolved ? 'btn-danger' : 'btn-success' %>"
+                                                  >
+                                                    <%= contact.isSolved ? 'Mark Unsolved' : 'Mark Solved' %>
+                                                </button>
+                                            </form>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

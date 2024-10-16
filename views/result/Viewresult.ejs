@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Green shiny background */
+        body {
+            background-color: #61a5bb; /* Dark green background */
+            color: #f8f9fa; /* Light text color for contrast */
+        }
+
+        .main {
+            padding: 20px;
+        }
+
+        .pagetitle h1 {
+            color: #ffffff; /* White color for the page title */
+        }
+
+        .breadcrumb-item a {
+            color: #b53131; /* Light green for breadcrumb links */
+        }
+
+        .breadcrumb-item.active {
+            color: #f8f9fa; /* Light color for active breadcrumb item */
+        }
+
+        .card {
+            background-color: #561150; /* Medium green background for cards */
+            color: #f8f9fa; /* Light text color */
+            box-shadow: 0 4px 8px rgba(1, 6, 1, 0.5); /* Shiny green shadow */
+        }
+
+        .card-title {
+            color: #32CD32; /* Light green color for card titles */
+        }
+
+        .btn-warning {
+            background-color: #ffcc00; /* Yellow for the edit button */
+            border-color: #ffcc00;
+            color: #1c1c1c;
+        }
+
+        .btn-danger {
+            background-color: #ff4500; /* Orange-red for the delete button */
+            border-color: #ff4500;
+            color: #fff;
+        }
+
+        .btn-warning:hover,
+        .btn-danger:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>View Results</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Results</li>
+                    <li class="breadcrumb-item active">View Results</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <!-- Loop through result array to create cards -->
+                <% result.forEach((resultItem, index) => { %>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title"><strong>Job Title:</strong> <%= resultItem.job_id.title %></h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Result Date:</strong> <%= new Date(resultItem.result_date).toDateString() %></p>
+                            <p><strong>Result Link:</strong> <%= resultItem.result_link %></p>
+                            <p><strong>Created At:</strong> <%= new Date(resultItem.createdAt).toLocaleString() %></p>
+                            <p><strong>Updated At:</strong> <%= new Date(resultItem.updatedAt).toLocaleString() %></p>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Action buttons -->
+                            <a href="/admin/user/result/edit/<%= resultItem._id %>" class="btn btn-warning">Edit</a>
+                            <a href="/admin/user/result/delete/<%= resultItem._id %>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this result?');">Delete</a>
+                        </div>
+                    </div>
+                </div>
+
+                <% if ((index + 1) % 2 === 0) { %>
+                    </div><div class="row">
+                <% } %>
+                <% }); %>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
