@@ -16,7 +16,7 @@ const addSpinpage = async (req, res) => {
       const availableJobs = allJobs.filter(job => !addedSpinJobIds.has(job._id.toString()));
   
       // Render the page with only available jobs
-      res.render("layout", { body: "spin/AddSpin", result: availableJobs });
+      res.render("Layout", { body: "spin/AddSpin", result: availableJobs });
     } catch (error) {
       console.log(error);
     }
@@ -45,7 +45,7 @@ const addSpinpage = async (req, res) => {
 const viewSpin = async(req,res) => {
     try {
         const spinData = await Spin.find().populate('job_id')
-        res.render("layout", { body: "spin/ViewSpin", result: spinData });
+        res.render("Layout", { body: "spin/ViewSpin", result: spinData });
     } catch (error) {
         console.log(`Error viewing spin ${error}`);
         

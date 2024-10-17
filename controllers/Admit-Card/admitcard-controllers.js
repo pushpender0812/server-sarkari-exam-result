@@ -13,7 +13,7 @@ const admitCardPage = async (req, res) => {
       const jobAll = await Addjob.find({ _id: { $nin: admitCardJobIds } });
   
       // Render the page with filtered jobs
-      res.render("layout", { body: "admitCard/Addadmit", result: jobAll });
+      res.render("Layout", { body: "admitCard/Addadmit", result: jobAll });
     } catch (error) {
       console.log(error);
       res.status(500).send("Server Error");
@@ -47,7 +47,7 @@ const viewAdmitCards = async(req,res) => {
         const admitAll = await AdmitCard.find().populate('job_id')
      
         
-        res.render("layout",{body:"admitCard/Viewadmit",result:admitAll})
+        res.render("Layout",{body:"admitCard/Viewadmit",result:admitAll})
       } catch (error) {
         console.log(error);
         

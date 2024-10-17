@@ -39,7 +39,7 @@ router.use('/spin',spinRoutes)
 
 router.get("/addjob",async(req,res) => {
     try {
-        res.render("layout",{body:"jobs/Addjobs"})
+        res.render("Layout",{body:"jobs/Addjobs"})
     } catch (error) {
         console.log(error);
         

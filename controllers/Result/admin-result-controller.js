@@ -14,7 +14,7 @@ const resultPage = async (req, res) => {
       const jobAll = await Addjob.find({ _id: { $nin: resultJobIds } });
   
       // Render the page with filtered jobs
-      res.render("layout", { body: "result/Addresult", result: jobAll });
+      res.render("Layout", { body: "result/Addresult", result: jobAll });
     } catch (error) {
       console.log(error);
       res.status(500).send("Server Error");
@@ -40,7 +40,7 @@ const submitResultData = async(req,res) => {
 const viewResult = async(req,res) => {
     try {
         const resultData = await Result.find().populate('job_id')
-        res.render("layout",{body:"result/Viewresult",result:resultData})
+        res.render("Layout",{body:"result/Viewresult",result:resultData})
     } catch (error) {
         console.log(error);
         

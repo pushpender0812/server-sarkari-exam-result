@@ -13,7 +13,7 @@ const addsyllabusPage = async (req, res) => {
       const jobAll = await Addjob.find({ _id: { $nin: syllabusJobIds } });
   
       // Render the page with filtered jobs
-      res.render("layout", { body: "syllabus/Addsyll", result: jobAll });
+      res.render("Layout", { body: "syllabus/Addsyll", result: jobAll });
     } catch (error) {
       console.log(error);
       res.status(500).send("Server Error");
@@ -45,7 +45,7 @@ const viewSyllabus = async(req,res) => {
         const syllabusAll = await Syllabus.find().populate('job_id')
      
         
-        res.render("layout",{body:"syllabus/Viewsyll",result:syllabusAll})
+        res.render("Layout",{body:"syllabus/Viewsyll",result:syllabusAll})
     } catch (error) {
         console.log(error);
         

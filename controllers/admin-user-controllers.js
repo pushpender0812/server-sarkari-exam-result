@@ -3,7 +3,7 @@ const Message = require("../modals/Message-model");
 const contactData = async(req,res) => {
    try {
       const contactData = await Message.find({isSolved:false})
-      res.render("layout", { body: "Contact", result: contactData });
+      res.render("Layout", { body: "Contact", result: contactData });
    } catch (error) {
     console.log(`Error While getting Contact data ${error}`);
     
@@ -25,7 +25,7 @@ const changeStatus = async(req,res) => {
 const solvedContactqueries = async(req,res) => {
     try {
         const contactData = await Message.find({isSolved:true})
-        res.render("layout", { body: "SolvedContact", result: contactData });
+        res.render("Layout", { body: "SolvedContact", result: contactData });
      } catch (error) {
       console.log(`Error While getting Contact data ${error}`);
       

@@ -12,7 +12,7 @@ const answerkeyPage = async (req, res) => {
       const jobAll = await Addjob.find({ _id: { $nin: answerKeyJobIds } });
   
       // Render the page with filtered jobs
-      res.render("layout", { body: "answerKey/AddKey", result: jobAll });
+      res.render("Layout", { body: "answerKey/AddKey", result: jobAll });
     } catch (error) {
       console.log(error);
       res.status(500).send("Server Error");
@@ -44,7 +44,7 @@ const viewAnswerKey = async(req,res) => {
         const answerKeyAll = await Answerkey.find().populate('job_id')
      
         
-        res.render("layout",{body:"answerKey/ViewKey",result:answerKeyAll})
+        res.render("Layout",{body:"answerKey/ViewKey",result:answerKeyAll})
     } catch (error) {
         console.log(error);
         

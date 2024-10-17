@@ -49,7 +49,7 @@ const addJobsdetails = async(req,res) => {
 const viewJobsPage = async(req,res) => {
      try {
         const jobdata = await Addjob.find({type:'Job'})
-        res.render("layout",{body:"jobs/Viewjobs",result:jobdata})
+        res.render("Layout",{body:"jobs/Viewjobs",result:jobdata})
      } catch (error) {
         console.log(error);
         
@@ -62,7 +62,7 @@ const getsingleJob = async(req,res) => {
     const _id = req.params.id
     
     const singleJob = await Addjob.findOne({_id:_id})
-    res.render("layout",{body:"jobs/ViewSinglejob",result:singleJob})
+    res.render("Layout",{body:"jobs/ViewSinglejob",result:singleJob})
    } catch (error) {
     console.log(error);
     
@@ -87,7 +87,7 @@ try {
     const _id = req.params.id
      
     const singleJob = await Addjob.findOne({_id:_id})
-    res.render("layout",{body:"jobs/Editjob",result:singleJob})
+    res.render("Layout",{body:"jobs/Editjob",result:singleJob})
 } catch (error) {
     console.log(error);
 }
@@ -134,7 +134,7 @@ const updateThisJob = async(req,res) => {
 const getAdmission = async(req,res) => {
   try {
     const admisData = await Addjob.find({type:'Admission'})
-    res.render("layout",{body:"ViewAdmission",result:admisData})
+    res.render("Layout",{body:"ViewAdmission",result:admisData})
  } catch (error) {
     console.log(error);
     
@@ -146,7 +146,7 @@ const singleAdmission = async(req,res) => {
    
     
     const admisData = await Addjob.findOne({_id:req.query.id})
-    res.render("layout",{body:"ViewSingleAdmission",result:admisData})
+    res.render("Layout",{body:"ViewSingleAdmission",result:admisData})
  } catch (error) {
     console.log(error);
     
