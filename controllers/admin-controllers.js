@@ -53,7 +53,10 @@ const Login = async(req,res) => {
     }
     
    } catch (error) {
+    console.log(`login error ${error}`);
+    
     res.status(400).json(`Internal Server Error ${error}`)
+    
    }
 }
 

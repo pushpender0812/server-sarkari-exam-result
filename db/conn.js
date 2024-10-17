@@ -7,3 +7,4 @@ mongoose.connect("mongodb+srv://pyadav96800:yadav%4012@cluster0.414c6.mongodb.ne
 .catch((error) => {
     console.log(`Error Connecting to MongoDB: ${error}`);
 });
+    
