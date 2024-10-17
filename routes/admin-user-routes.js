@@ -12,7 +12,7 @@ const spinRoutes = require("../routes/Spin/admin-spin-routes")
 
 router.get("/dashboard",async(req,res) => {
    try {
-    res.render("layout",{body:"Dashboard"})
+    res.render("Layout",{body:"Dashboard"})
    } catch (error) {
     console.log(`error in dashboard ${error}`);
     
