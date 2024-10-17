@@ -7,8 +7,8 @@ const addJobSchema = new mongoose.Schema({
     },
     type:{
         type:String,
-        enum:["job","Admission"],
-        default:"job"
+        enum:["Job","Admission"],
+        default:"Job"
     },
     title:{
      type:String
