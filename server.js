@@ -16,7 +16,7 @@ const PORT = process.env.PORT
 app.use(cookieParser())
 
 const corsOptions = {
-    origin:'https://sarkariexamresult.vercel.app',
+    origin:'http://localhost:5173',
     method:"GET,POST,PUT,PATCH,DELETE,HEAD",
     credential:true
 }
